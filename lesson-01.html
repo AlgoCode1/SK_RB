@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 10 — Геймдизайн на Roblox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="container">
+
+    <nav class="breadcrumbs">
+      <a href="../index.html">← Все уроки</a>
+    </nav>
+
+    <header class="hero">
+      <h1>Урок 1: Создаём первую платформу</h1>
+      <p class="subhead">Учимся работать с частями и скриптами в Roblox Studio</p>
+      <div class="badge-list">
+        <span class="badge">👾 Урок 1 из 12</span>
+        <span class="badge">⏱️ 45 минут</span>
+        <span class="badge">📋 Код для копирования</span>
+      </div>
+    </header>
+
+    <div class="task-grid" id="taskGrid">
+
+      <!-- ЗАДАНИЕ 1 -->
+      <article class="task-card">
+        <div class="task-header">
+          <h2>
+            <span class="task-number">1</span>
+            Создай платформу и чекпоинт
+          </h2>
+          <p class="task-desc">Добавь в игру стартовую площадку и точку сохранения</p>
+        </div>
+        <div class="code-block-wrapper">
+          <div class="code-label">
+            <span>📄 Скопируй в Script (ServerScriptService)</span>
+            <button class="copy-button" data-target="code1">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Копировать</span>
+            </button>
+          </div>
+          <pre><code id="code1">-- Создаём стартовую платформу и чекпоинт
+local platform = Instance.new("Part")
+platform.Size = Vector3.new(20, 1, 20)
+platform.Position = Vector3.new(0, 5, 0)
+platform.Anchored = true
+platform.BrickColor = BrickColor.new("Bright green")
+platform.Parent = workspace
+
+local checkpoint = Instance.new("Part")
+checkpoint.Size = Vector3.new(4, 1, 4)
+checkpoint.Position = Vector3.new(0, 10, -8)
+checkpoint.Anchored = true
+checkpoint.BrickColor = BrickColor.new("Gold")
+checkpoint.Parent = workspace
+
+print("Платформа и чекпоинт готовы!")</code></pre>
+        </div>
+      </article>
+
+      <!-- ЗАДАНИЕ 2 -->
+      <article class="task-card">
+        <div class="task-header">
+          <h2>
+            <span class="task-number">2</span>
+            Скрипт для прыжка с ускорением
+          </h2>
+          <p class="task-desc">Увеличиваем силу прыжка игрока при нажатии на пробел</p>
+        </div>
+        <div class="code-block-wrapper">
+          <div class="code-label">
+            <span>📄 Вставь в StarterCharacterScripts (LocalScript)</span>
+            <button class="copy-button" data-target="code2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Копировать</span>
+            </button>
+          </div>
+          <pre><code id="code2">-- Усиленный прыжок при нажатии пробела
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.KeyCode == Enum.KeyCode.Space then
+        humanoid.JumpPower = 100
+        humanoid.Jump = true
+        wait(1)
+        humanoid.JumpPower = 50
+    end
+end)
+
+print("Скрипт прыжка активирован!")</code></pre>
+        </div>
+      </article>
+
+      <!-- ЗАДАНИЕ 3 -->
+      <article class="task-card">
+        <div class="task-header">
+          <h2>
+            <span class="task-number">3</span>
+            Сбор монет — счётчик очков
+          </h2>
+          <p class="task-desc">При касании монеты она исчезает, а игрок получает +1 очко</p>
+        </div>
+        <div class="code-block-wrapper">
+          <div class="code-label">
+            <span>📄 Скопируй в Script внутри монеты (Part)</span>
+            <button class="copy-button" data-target="code3">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Копировать</span>
+            </button>
+          </div>
+          <pre><code id="code3">-- Скрипт для монеты: сбор и начисление очков
+local coin = script.Parent
+local debounce = false
+
+coin.Touched:Connect(function(hit)
+    if debounce then return end
+    local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+    if not player then return end
+
+    debounce = true
+    coin:Destroy()
+
+    local leaderstats = player:FindFirstChild("leaderstats")
+    if not leaderstats then
+        leaderstats = Instance.new("Folder")
+        leaderstats.Name = "leaderstats"
+        leaderstats.Parent = player
+    end
+
+    local points = leaderstats:FindFirstChild("Очки")
+    if not points then
+        points = Instance.new("IntValue")
+        points.Name = "Очки"
+        points.Value = 0
+        points.Parent = leaderstats
+    end
+
+    points.Value = points.Value + 1
+    print(player.Name .. " собрал монету! Всего: " .. points.Value)
+end)</code></pre>
+        </div>
+      </article>
+
+    </div>
+
+    <footer class="footer-nav">
+      <a href="../index.html">← Все уроки</a>
+      <a href="lesson-02.html">Урок 2 →</a>
+    </footer>
+
+  </div>
+  <script src="../js/copy.js" defer></script>
+</body>
+</html>
