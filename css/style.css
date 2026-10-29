@@ -86,7 +86,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ===== ХЛЕБНЫЕ КРОШКИ (кнопки) ===== */
+/* ===== НАВИГАЦИЯ СВЕРХУ ===== */
 .breadcrumbs {
   margin-bottom: 1.25rem;
   font-size: 0.9rem;
@@ -123,6 +123,118 @@ body {
 .breadcrumbs a:active {
   transform: scale(0.97);
 }
+
+/* ===== МАТЕРИАЛЫ К УРОКУ ===== */
+.downloads {
+  background: #ffffff;
+  border: 1px solid #e9eef3;
+  border-radius: 1.5rem;
+  padding: 1.5rem 1.75rem 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 14px -6px rgba(0, 0, 0, 0.06);
+}
+
+.downloads__title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0b1e33;
+  margin-bottom: 0.4rem;
+}
+
+.downloads__icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.downloads__hint {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1.1rem;
+}
+
+.downloads__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Карточка-ссылка на файл */
+.download-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 1rem;
+  background: #f9fcff;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+
+.download-item:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+  box-shadow: 0 6px 14px -8px rgba(59, 130, 246, 0.4);
+}
+
+.download-item:active {
+  transform: scale(0.995);
+}
+
+.download-item__icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  width: 2.2rem;
+  text-align: center;
+}
+
+.download-item__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.download-item__name {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.download-item__meta {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Кнопка «Скачать ↓» внутри карточки */
+.download-item__action {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 2rem;
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1.5px solid #3b82f6;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.download-item:hover .download-item__action {
+  background: #2563eb;
+  border-color: #2563eb;
+  box-shadow: 0 4px 10px -4px rgba(37, 99, 235, 0.5);
+}
+
+
 
 /* ===== СПИСОК УРОКОВ (главная) ===== */
 .lesson-list {
