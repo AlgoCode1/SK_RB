@@ -4,7 +4,9 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: #f3f6ff;
@@ -233,7 +235,21 @@
     border-color: #2563eb;
     box-shadow: 0 4px 10px -4px rgba(37, 99, 235, 0.5);
   }
+  .task-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: #3b82f6;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px dashed #93c5fd;
+    transition: color 0.15s, border-color 0.15s;
+  }
   
+  .task-link:hover {
+    color: #1d4ed8;
+    border-bottom-color: #1d4ed8;
+  }
   
   
   /* ===== СПИСОК УРОКОВ (главная) ===== */
