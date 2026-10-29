@@ -128,7 +128,6 @@
                 <span>📄 Скопируй в Script (Lamp)</span>
             </div>
             <pre><code id="code3">
-
     local SpotLight = script.Parent.SpotLight
 
     while true do
@@ -140,7 +139,6 @@
         end
         wait()
     end
-                
             </code></pre>
             </div>
         </article>
@@ -159,14 +157,12 @@
                 <span>📄 Скопируй в Script (Fire)</span>
                 </div>
                 <pre><code id="code3">
-
     while true do
         script.Parent.Fire.Enabled=false
         wait(2)
         script.Parent.Fire.Enabled=true
         wait(2)
-    end
-                    
+    end  
                 </code></pre>
             </div>
             </article>
@@ -188,12 +184,12 @@
     function onTouch(who)
         game.Workspace.House.Part1.SpotLight.Enabled=true	
     end
+    
     function onTouchEnded(who)
         game.Workspace.House.Part1.SpotLight.Enabled=false	
     end
 
     game.Workspace.House.Platform_1.Touched:Connect(onTouch)
-
     game.Workspace.House.Platform_1.TouchEnded:Connect(onTouchEnded)
             </code></pre>
             </div>
