@@ -86,48 +86,29 @@ game.Workspace.House.Platform_1.TouchEnded:Connect(onTouchEnded)
         <div class="task-header">
           <h2>
             <span class="task-number">3</span>
-            Сбор монет — счётчик очков
+            Работа фонарного столба по ночам
           </h2>
-          <p class="task-desc">При касании монеты она исчезает, а игрок получает +1 очко</p>
+          <p class="task-desc">Внимательно проверь чтобы скрипт был внутри всего объекта - Фонарный столб</p>
         </div>
         <div class="code-block-wrapper">
           <div class="code-label">
-            <span>📄 Скопируй в Script (Part)</span>
-            <button class="copy-button" data-target="code3">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              <span>Копировать</span>
-            </button>
+            <span>📄 Скопируй в Script (Lamp)</span>
           </div>
-          <pre><code id="code3">-- Скрипт для монеты: сбор и начисление очков
-local coin = script.Parent
-local debounce = false
+          <pre><code id="code3">
 
-coin.Touched:Connect(function(hit)
-    if debounce then return end
-    local player = game.Players:GetPlayerFromCharacter(hit.Parent)
-    if not player then return end
+local SpotLight = script.Parent.SpotLight
 
-    debounce = true
-    coin:Destroy()
-
-    local leaderstats = player:FindFirstChild("leaderstats")
-    if not leaderstats then
-        leaderstats = Instance.new("Folder")
-        leaderstats.Name = "leaderstats"
-        leaderstats.Parent = player
-    end
-
-    local points = leaderstats:FindFirstChild("Очки")
-    if not points then
-        points = Instance.new("IntValue")
-        points.Name = "Очки"
-        points.Value = 0
-        points.Parent = leaderstats
-    end
-
-    points.Value = points.Value + 1
-    print(player.Name .. " собрал монету! Всего: " .. points.Value)
-end)</code></pre>
+while true do
+	local time = game.Lighting.ClockTime
+	if time >= 18 or time < 6 then
+		SpotLight.Enabled = true
+	else
+		SpotLight.Enabled = false
+	end
+	wait()
+end
+			  
+		  </code></pre>
         </div>
       </article>
 
