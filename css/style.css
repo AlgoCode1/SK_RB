@@ -345,10 +345,10 @@
   .task-number {
     background: #3b82f6;
     color: white;
-    font-size: 0.9rem;
+    font-size: 25px;
     font-weight: 600;
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
