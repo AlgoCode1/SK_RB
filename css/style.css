@@ -7,7 +7,7 @@
   
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: #f8fafc;
+    background: #f3f6ff;
     color: #0f172a;
     line-height: 1.5;
     padding: 2rem 1.5rem;
@@ -45,7 +45,7 @@
   
   /* ===== ХЕДЕР ===== */
   .hero {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    background: linear-gradient(135deg, #1d2b3f 0%, #52648e 100%);
     color: white;
     border-radius: 2rem;
     padding: 2.5rem 2rem;
@@ -246,23 +246,24 @@
   .lesson-item {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    background: white;
-    padding: 1.25rem 1.5rem;
-    border-radius: 1.25rem;
-    border: 1px solid #e9eef3;
+    gap: 1rem;
+    background: rgb(251, 251, 251);
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid #bfc1c3;
     text-decoration: none;
     color: inherit;
     transition: box-shadow 0.2s, border-color 0.2s, transform 0.1s;
   }
   
   .lesson-item:hover {
-    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.1);
-    border-color: #cbd5e1;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.2);
+    border-color: #506074;
+    background: rgb(255, 255, 255);
   }
   
   .lesson-item--disabled {
-    opacity: 0.55;
+    opacity: 0.3;
     pointer-events: none;
   }
   
@@ -285,7 +286,7 @@
   }
   
   .lesson-item__body h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #1e293b;
     margin-bottom: 0.25rem;
@@ -297,8 +298,8 @@
   }
   
   .lesson-item__arrow {
-    color: #94a3b8;
-    font-size: 1.25rem;
+    color: #657387;
+    font-size: 2rem;
   }
   
   /* ===== КАРТОЧКИ ЗАДАНИЙ ===== */
@@ -566,9 +567,9 @@
   }
   
   .topic-range {
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 500;
-    color: #64748b;
+    color: #4f5a68;
     background: #f1f5f9;
     padding: 0.2rem 0.7rem;
     border-radius: 40px;
