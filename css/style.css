@@ -281,6 +281,8 @@
   .lesson-item--disabled {
     opacity: 0.3;
     pointer-events: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
   }
   
   .lesson-item__num {
@@ -289,7 +291,7 @@
     width: 3rem;
     height: 3rem;
     font-size: 25px;
-    border-radius: 12px;
+    border-radius: 10px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
