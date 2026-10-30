@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 11 — Геймдизайн на Roblox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../logo-circle-tg.png">
+</head>
+<body>
+  <div class="container">
+
+    <nav class="breadcrumbs">
+      <a href="../index.html">← Все уроки</a>
+    </nav>
+
+    <header class="hero">
+      <h1>11. Новый мир: ...</h1>
+      <p class="subhead">wwwwwwwwwww</p>
+      <div class="badge-list">
+        <span class="badge">wwwwwwwwwww</span>
+        <span class="badge">wwwwwwwwwww</span>
+      </div>
+    </header>
+
+
+    <div class="task-grid" id="taskGrid">
+
+        <!-- ЗАДАНИЕ 1 Смена дня и ночи-->
+        <article class="task-card">
+            <div class="task-header">
+            <h2>
+                <span class="task-number">1</span>
+                wwwwwwwwwww
+            </h2>
+            <p class="task-desc">wwwwwwwwwww <b>wwwwwwwwwww</b> wwwwwwwwwww</p>
+            </div>
+            <div class="code-block-wrapper">
+            <div class="code-label">
+                <span>📄 Скопируй в Script (wwwwwwwwwww)</span>
+            </div>
+            <pre><code id="code1">
+local sign = script.Parent
+local emergence_distance = 25
+local originalText = ""
+local newText = "Ты на верном пути"
+
+local function checkPlayerDistance()
+    local players = game.Players:GetPlayers()
+    for _, player in ipairs(players) do
+        local character = player.Character
+        if not character then continue end
+        local hrp = character:FindFirstChild("HumanoidRootPart")
+        if not hrp then continue end
+        local distance = (hrp.Position - sign.Position).Magnitude
+        if distance <= emergence_distance then
+            sign.SurfaceGui.TextLabel.Text = newText
+        else
+            sign.SurfaceGui.TextLabel.Text = originalText
+        end
+    end
+end
+
+while true do
+    checkPlayerDistance()
+    wait(0.1)
+end                  
+            </code></pre>
+            </div>
+        </article>
+
+
+        <!-- ЗАДАНИЕ 3 Работа фонарного столба-->
+        <article class="task-card">
+            <div class="task-header">
+            <h2>
+                <span class="task-number">2</span>
+                Работа фонарного столба по ночам
+            </h2>
+            <p class="task-desc">Внимательно проверь чтобы скрипт был внутри объекта с освещением</p>
+            </div>
+            <div class="code-block-wrapper">
+            <div class="code-label">
+                <span>📄 Скопируй в Script (Lamp)</span>
+            </div>
+            <pre><code id="code3">
+    local SpotLight = script.Parent.SpotLight
+
+    while true do
+        local time = game.Lighting.ClockTime
+        if time >= 18 or time < 6 then
+            SpotLight.Enabled = true
+        else
+            SpotLight.Enabled = false
+        end
+        wait()
+    end
+            </code></pre>
+            </div>
+        </article>
+
+        <!-- ЗАДАНИЕ 4 Мигание факелов-->
+        <article class="task-card">
+            <div class="task-header">
+                <h2>
+                <span class="task-number">4</span>
+                Автоматическое мигание факелов
+                </h2>
+                <p class="task-desc">Скрипт добавь к объекту с эффектом огня.</p>
+            </div>
+            <div class="code-block-wrapper">
+                <div class="code-label">
+                <span>📄 Скопируй в Script (Fire)</span>
+                </div>
+                <pre><code id="code3">
+    while true do
+        script.Parent.Fire.Enabled=false
+        wait(2)
+        script.Parent.Fire.Enabled=true
+        wait(2)
+    end  
+                </code></pre>
+            </div>
+            </article>
+
+        <!-- ЗАДАНИЕ 5 Включение освещения в доме-->
+        <article class="task-card">
+            <div class="task-header">
+            <h2>
+                <span class="task-number">5</span>
+                Включение освещения в доме, когда мы внутри
+            </h2>
+            <p class="task-desc">Внимательно с объектами освещения и платформы, их именами и положением</p>
+            </div>
+            <div class="code-block-wrapper">
+            <div class="code-label">
+                <span>📄 Скопируй в Script (HomeLight)</span>
+            </div>
+            <pre><code id="code2">
+    function onTouch(who)
+        game.Workspace.House.Part1.SpotLight.Enabled=true	
+    end
+    
+    function onTouchEnded(who)
+        game.Workspace.House.Part1.SpotLight.Enabled=false	
+    end
+
+    game.Workspace.House.Platform_1.Touched:Connect(onTouch)
+    game.Workspace.House.Platform_1.TouchEnded:Connect(onTouchEnded)
+            </code></pre>
+            </div>
+        </article>
+
+    </div>
+
+    <footer class="footer-nav">
+      <a href="../index.html">← Все уроки</a>
+      <a href="lesson-02.html">Урок 11 →</a>
+    </footer>
+
+  </div>
+  <script src="../js/copy.js" defer></script>
+</body>
+</html>
